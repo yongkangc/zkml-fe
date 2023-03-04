@@ -1,9 +1,22 @@
 // This page is for uploading a ONNX file to the server
 // Wallet connection is using https://wagmi.sh/
 
+import Header from '@/components/Header'
+import { Magic } from 'magic-sdk'
+
 import styles from '@/styles/Home.module.css'
 
+import {
+  useAccount,
+  useContractRead,
+  useContractWrite,
+  usePrepareContractWrite,
+  useWaitForTransaction,
+} from 'wagmi'
+
 export default function Upload() {
+  const { address, isConnecting, isDisconnected, isConnected } = useAccount()
+
   const uploadONNXModel = () => {
     // Upload the ONNX model to the server
   }
@@ -11,12 +24,8 @@ export default function Upload() {
   return (
     <>
       {/* Connect wallet component */}
-      {/* <Header isConnected={true}/> */}
+      <Header isConnected={isConnected} />
       <main className={styles.main}>
-        <div className="absolute inset-x-0 top-0">
-          <p>Banana</p>
-        </div>
-
         <div className="flex flex-row space-x-4">
           {/* Upload Box */}
           <div className="flex flex-col">

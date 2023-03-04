@@ -1,10 +1,13 @@
-import { useState } from 'react' // import state
+import React, { useState } from 'react' // import state
+
+import Image from 'next/image'
 
 import { ConnectButton } from '@rainbow-me/rainbowkit'
-import React from 'react'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
+
+import bananaLogo from '../public/banana-logo.svg'
 
 export default function Header(isConnected) {
   const [isNavOpen, setIsNavOpen] = useState(false) // initiate isNavOpen state with false
@@ -16,11 +19,12 @@ export default function Header(isConnected) {
         target="_blank"
         className="flex items-center"
       >
-        <img
-          src="https://raw.githubusercontent.com/SpartanLabsXyz/zk-sbt/1f240dad5ee29db4f29e2069eb79762e11f47955/client/public/spartanlabs-logomark_black.svg"
+        {/* <Image
+          src={bananaLogo}
           className="mr-3 h-6 sm:h-9"
           alt="Spartan Labs Logo"
-        />
+        /> */}
+        <p>Banana</p>
       </a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
