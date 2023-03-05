@@ -191,6 +191,9 @@ export default function Run() {
                   <option key="mumbai" value={80001}>
                     Polygon Mumbai
                   </option>
+                  <option key="metis" value={599}>
+                    Metis
+                  </option>
                 </select>
               </div>
               <div className={styles.card}>
