@@ -30,19 +30,19 @@ export default function Home() {
             />
           </div>
 
-          <div>
-            {/* Header  */}
+          <div class="flex w-2/3">
             <div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8 text-justify">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl my-3">
                 Extend Your Smart Contracts with Zero Knowledge Machine Learning
                 <br />
               </h2>
-              <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h3 className="text-2xl font-semibold tracking-tight text-gray-900 sm:text-4xl my-3">
                 This is alpha software and will break, please be gentle
               </h3>
             </div>
           </div>
         </div>
+
         <button
           className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-4 px-5 rounded"
           onClick={navigateToMain}

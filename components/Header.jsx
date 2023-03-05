@@ -8,15 +8,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTwitter } from '@fortawesome/free-brands-svg-icons'
 
 import bananaLogo from '../public/banana-logo.svg'
+import Link from 'next/link'
 
 export default function Header(isConnected) {
   const [isNavOpen, setIsNavOpen] = useState(false) // initiate isNavOpen state with false
 
   return (
     <div className="flex items-center justify-between border-b border-gray-400 py-8 px-20">
-      <a href="/" target="_blank" className="flex items-center">
+      <Link href="/" className="flex items-center">
         <h1 className="text-4xl">GELKIN</h1>
-      </a>
+      </Link>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
           <div
@@ -60,10 +61,7 @@ export default function Header(isConnected) {
                 </li>
               )}
               <li>
-                <a
-                  target="_blank"
-                  href="https://linktr.ee/gelkin"
-                >
+                <a target="_blank" href="https://linktr.ee/gelkin">
                   <span className="text-black transition hover:text-gray-500/75 mt-5 hover:cursor-pointer">
                     PROJECT
                   </span>
@@ -89,10 +87,7 @@ export default function Header(isConnected) {
           </span>
           <span className="mt-2">
             <li>
-              <a
-                target="_blank"
-                href="https://linktr.ee/gelkin"
-              >
+              <a target="_blank" href="https://linktr.ee/gelkin">
                 <span className="text-black transition hover:text-gray-500/75 hover:cursor-pointer">
                   PROJECT
                 </span>
