@@ -71,12 +71,14 @@ export default function Upload() {
     }
   }, [time])
 
-  const uploadInputAndModel = async () => {
+  const uploadInputAndModel = async (e) => {
+    e.preventDefault()
     console.log('Uploading input and model')
     try {
       // Upload the ONNX model to the server
       const ONNXModel = new FormData()
-      ONNXModel.append('file', selectedONNXFile)
+      ONNXModel.append('onnxmodel', selectedONNXFile)
+      console.log(ONNXModel.get('onnxmodel'))
 
       // Post the ONNX to the server
       const ONNXRes = await axios.post(
@@ -85,6 +87,7 @@ export default function Upload() {
         {
           headers: {
             'Content-Type': 'multipart/form-data',
+            'Access-Control-Allow-Origin': '*',
           },
         }
       )
@@ -92,12 +95,13 @@ export default function Upload() {
 
       // Upload the JSON file to the server
       const jsonData = new FormData()
-      jsonData.append('file', selectedJSONFile)
+      jsonData.append('inputdata', selectedJSONFile)
+      console.log(jsonData.get('inputdata'))
 
       // Post the JSON to the server
       const jsonRes = await axios.post(
         'https://backend.gelk.in/upload/inputdata',
-        data,
+        jsonData,
         {
           headers: {
             'Content-Type': 'multipart/form-data',
@@ -114,25 +118,19 @@ export default function Upload() {
       const JSONUUID = jsonRes.data.file
 
       console.log('Initalise with: ', JSONUUID, ONNXUUID)
-
-      // Run Initialise
-      const initialise = await axios.post(
-        'https://backend.gelk.in/initialise',
-        {
-          inputdata: JSONUUID,
-          onnxmodel: ONNXUUID,
-        }
-      )
     } catch (error) {
-      alert(error)
+      console.log(error)
     }
-
     // Set the progress bar to 100%
     setProgress(5)
 
     // Set the isUploaded state to true
     setIsUploaded(true)
+
+    // TODO: Run the model
+
   }
+
 
   const selectONNXFile = (event) => {
     // Allow user to select a ONNX file to upload
