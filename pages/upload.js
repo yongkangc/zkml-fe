@@ -3,6 +3,7 @@
 
 import Header from '@/components/Header'
 import { Magic } from 'magic-sdk'
+import { magic } from '@/lib/magic'
 
 import styles from '@/styles/Home.module.css'
 
@@ -13,9 +14,21 @@ import {
   usePrepareContractWrite,
   useWaitForTransaction,
 } from 'wagmi'
+import { use, useEffect } from 'react'
 
 export default function Upload() {
   const { address, isConnecting, isDisconnected, isConnected } = useAccount()
+
+  useEffect(() => {
+    try {
+      const connectWallet = async () => {
+        await magic.wallet.connectWithUI()
+      }
+      connectWallet()
+    } catch (error) {
+      console.log(error)
+    }
+  }, [])
 
   const uploadONNXModel = () => {
     // Upload the ONNX model to the server
