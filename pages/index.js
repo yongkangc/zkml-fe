@@ -20,9 +20,6 @@ export default function Home() {
       <Header />
       <main className={styles.main}>
         {/* Have a logo at top right hand */}
-        <div className="absolute inset-x-0 top-0">
-          <p>Banana</p>
-        </div>
         <div className="flex flex-row">
           <div>
             <Image
