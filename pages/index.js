@@ -37,6 +37,9 @@ export default function Home() {
                 Extend Your Smart Contracts with Zero Knowledge Machine Learning
                 <br />
               </h2>
+              <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                This is alpha software and will break, please be gentle
+              </h3>
             </div>
           </div>
         </div>
