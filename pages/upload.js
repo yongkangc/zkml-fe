@@ -128,9 +128,7 @@ export default function Upload() {
     setIsUploaded(true)
 
     // TODO: Run the model
-
   }
-
 
   const selectONNXFile = (event) => {
     // Allow user to select a ONNX file to upload
