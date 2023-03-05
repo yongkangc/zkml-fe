@@ -14,12 +14,8 @@ export default function Header(isConnected) {
 
   return (
     <div className="flex items-center justify-between border-b border-gray-400 py-8 px-20">
-      <a
-        href="https://spartanlabs.studio/"
-        target="_blank"
-        className="flex items-center"
-      >
-      <h1 className="text-4xl">BANANA</h1>
+      <a href="/upload" target="_blank" className="flex items-center">
+        <h1 className="text-4xl">BANANA</h1>
       </a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
@@ -75,10 +71,7 @@ export default function Header(isConnected) {
               </li>
 
               <li>
-                <a
-                  target="_blank"
-                  href="/run"
-                >
+                <a target="_blank" href="/run">
                   <span className="text-black transition hover:text-gray-500/75 mt-5 hover:cursor-pointer">
                     ARTICLE
                   </span>

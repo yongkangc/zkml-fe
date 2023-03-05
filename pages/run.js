@@ -84,7 +84,7 @@ export default function Run() {
       {/* Connect wallet component */}
       <Header isConnected={isConnected} />
       <main className={styles.main}>
-        <div className={styles.grid}>
+        <div className="flex flex-col">
           <div className={styles.card}>
             <h2>Input JSON</h2>
             <select className="px-20 py-8">
