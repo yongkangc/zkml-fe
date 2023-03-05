@@ -21,62 +21,10 @@ import Image from 'next/image'
 
 export default function Run() {
   const { address, isConnecting, isDisconnected, isConnected } = useAccount()
-  const [time, setTime] = useState(0)
+  const [inputJsonList, setInputJsonList] = useState([])
+  const [inputOnnxList, setInputOnnxList] = useState([])
 
-  // Set progress bar with 5 different stages
-  const [progress, setProgress] = useState(0)
-  const [selectedFile, setSelectedFile] = useState(null)
-
-  const [isUploading, setIsUploading] = useState(false)
-
-  useEffect(() => {
-    setProgress(0)
-    try {
-      const connectWallet = async () => {
-        await magic.wallet.connectWithUI()
-      }
-      connectWallet()
-    } catch (error) {
-      console.log(error)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (isUploading) {
-      // after every 1 second, time increases by 1
-      const timer = setInterval(() => {
-        setTime(time + 1)
-      }, 1000)
-
-      // after every 45 seconds, progress bar increases by 1
-      if (time != 0 && time % 16 === 0) {
-        // check if progress is less than 5
-        if (progress < 5) {
-          setProgress(progress + 1)
-        }
-      }
-
-      return () => {
-        clearInterval(timer)
-      }
-    }
-  }, [time])
-
-  const uploadONNXModel = () => {
-    // Upload the ONNX model to the server
-    console.log('Upload ONNX Model')
-    const formData = new FormData()
-    formData.append('file', selectedFile)
-
-    // Post the file to the server
-    // setIsUploading(true)
-  }
-
-  const selectFile = (event) => {
-    // Allow user to select a ONNX file to upload
-    console.log('Select File')
-    setSelectedFile(event.target.files[0])
-  }
+  useEffect(() => {}, [])
 
   return (
     <>
