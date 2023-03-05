@@ -32,12 +32,14 @@ export default function Home() {
 
           <div>
             {/* Header  */}
-            <div className="flex flex-col">
-              <p>EXTEND YOUR SMART CONTRACTS</p>
-              <p>
-                Do more with your smart contracts with Zero Knowledge Machine
-                Learning
-              </p>
+            <div className="mx-auto max-w-7xl py-24 px-6 sm:py-32 lg:px-8 text-justify">
+              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+                Extend Your Smart Contracts
+                <br />
+                <br />
+                Explore the Limitless Possibilities of Zero Knowledge Machine
+                Learning{' '}
+              </h2>
             </div>
           </div>
         </div>
