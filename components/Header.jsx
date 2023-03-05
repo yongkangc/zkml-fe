@@ -14,8 +14,8 @@ export default function Header(isConnected) {
 
   return (
     <div className="flex items-center justify-between border-b border-gray-400 py-8 px-20">
-      <a href="/upload" target="_blank" className="flex items-center">
-        <h1 className="text-4xl">BANANA</h1>
+      <a href="/" target="_blank" className="flex items-center">
+        <h1 className="text-4xl">GELKIN</h1>
       </a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
@@ -62,30 +62,10 @@ export default function Header(isConnected) {
               <li>
                 <a
                   target="_blank"
-                  href="https://github.com/SpartanLabsXyz/zk-sbt"
+                  href="https://linktr.ee/gelkin"
                 >
                   <span className="text-black transition hover:text-gray-500/75 mt-5 hover:cursor-pointer">
-                    CODE
-                  </span>
-                </a>
-              </li>
-
-              <li>
-                <a target="_blank" href="/run">
-                  <span className="text-black transition hover:text-gray-500/75 mt-5 hover:cursor-pointer">
-                    ARTICLE
-                  </span>
-                </a>
-              </li>
-
-              {/* Twitter */}
-              <li>
-                <a target="_blank" href="https://twitter.com/TheSpartanLabs">
-                  <span>
-                    <FontAwesomeIcon icon={faTwitter} />
-                  </span>
-                  <span className="text-black transition hover:text-gray-500/75 mt-5 hover:cursor-pointer pl-1">
-                    TWITTER
+                    PROJECT
                   </span>
                 </a>
               </li>
@@ -111,15 +91,15 @@ export default function Header(isConnected) {
             <li>
               <a
                 target="_blank"
-                href="https://github.com/SpartanLabsXyz/zk-sbt"
+                href="https://linktr.ee/gelkin"
               >
                 <span className="text-black transition hover:text-gray-500/75 hover:cursor-pointer">
-                  CODE
+                  PROJECT
                 </span>
               </a>
             </li>
           </span>
-          <span className="mt-2">
+          {/* <span className="mt-2">
             <li>
               <a
                 target="_blank"
@@ -143,7 +123,7 @@ export default function Header(isConnected) {
                 </span>
               </a>
             </li>
-          </span>
+          </span> */}
         </ul>
       </nav>
       <style>{`

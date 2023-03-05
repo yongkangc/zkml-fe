@@ -2,8 +2,6 @@
 // Wallet connection is using https://wagmi.sh/
 
 import Header from '@/components/Header'
-import { Magic } from 'magic-sdk'
-import { magic } from '@/lib/magic'
 import { useState } from 'react'
 
 import styles from '@/styles/Home.module.css'
@@ -38,48 +36,17 @@ export default function Upload() {
     router.push('/run')
   }
 
-  useEffect(() => {
-    setProgress(0)
-    try {
-      const connectWallet = async () => {
-        await magic.wallet.connectWithUI()
-      }
-      connectWallet()
-    } catch (error) {
-      console.log(error)
-    }
-  }, [])
-
-  useEffect(() => {
-    if (isUploading) {
-      // after every 1 second, time increases by 1
-      const timer = setInterval(() => {
-        setTime(time + 1)
-      }, 1000)
-
-      // after every 45 seconds, progress bar increases by 1
-      if (time != 0 && time % 16 === 0) {
-        // check if progress is less than 5
-        if (progress < 5) {
-          setProgress(progress + 1)
-        }
-      }
-
-      return () => {
-        clearInterval(timer)
-      }
-    }
-  }, [time])
-
   const uploadInputAndModel = async (e) => {
     e.preventDefault()
     console.log('Uploading input and model')
     try {
+      setIsUploading(true)
       // Upload the ONNX model to the server
       const ONNXModel = new FormData()
       ONNXModel.append('onnxmodel', selectedONNXFile)
       console.log(ONNXModel.get('onnxmodel'))
 
+      setProgress(1)
       // Post the ONNX to the server
       const ONNXRes = await axios.post(
         'https://backend.gelk.in/upload/onnxmodel',
@@ -92,6 +59,8 @@ export default function Upload() {
         }
       )
       console.log(ONNXRes.data.file)
+      localStorage.setItem("onnxmodel", ONNXRes.data.file)
+      setProgress(2)
 
       // Upload the JSON file to the server
       const jsonData = new FormData()
@@ -108,26 +77,23 @@ export default function Upload() {
           },
         }
       )
+      setProgress(3)
 
       console.log(jsonRes.data.file)
+      localStorage.setItem("inputdata", jsonRes.data.file)
 
-      setIsUploading(true)
+      setProgress(4)
 
       // Get the UUID of the uploaded ONNX model and JSON file
       const ONNXUUID = ONNXRes.data.file
       const JSONUUID = jsonRes.data.file
 
       console.log('Initalise with: ', JSONUUID, ONNXUUID)
+      setProgress(5);
+      setIsUploaded(true);
     } catch (error) {
       console.log(error)
     }
-    // Set the progress bar to 100%
-    setProgress(5)
-
-    // Set the isUploaded state to true
-    setIsUploaded(true)
-
-    // TODO: Run the model
   }
 
   const selectONNXFile = (event) => {
@@ -212,16 +178,6 @@ export default function Upload() {
               </form>
             </div>
           </div>
-          {/* Banana Dance GIF */}
-          {!isUploading && !isUploaded && (
-            <div className="flex flex-col">
-              <Image
-                src={bananaGif}
-                alt="Banana Dance GIF"
-                className="w-96 h-96"
-              />
-            </div>
-          )}
 
           {/* Progress Bar */}
           {isUploading && (
