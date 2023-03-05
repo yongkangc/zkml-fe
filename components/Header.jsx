@@ -13,18 +13,13 @@ export default function Header(isConnected) {
   const [isNavOpen, setIsNavOpen] = useState(false) // initiate isNavOpen state with false
 
   return (
-    <div className="flex items-center justify-between border-b border-gray-400 py-8">
+    <div className="flex items-center justify-between border-b border-gray-400 py-8 px-20">
       <a
         href="https://spartanlabs.studio/"
         target="_blank"
         className="flex items-center"
       >
-        {/* <Image
-          src={bananaLogo}
-          className="mr-3 h-6 sm:h-9"
-          alt="Spartan Labs Logo"
-        /> */}
-        <p>Banana</p>
+      <h1 className="text-4xl">BANANA</h1>
       </a>
       <nav>
         <section className="MOBILE-MENU flex lg:hidden">
@@ -82,7 +77,7 @@ export default function Header(isConnected) {
               <li>
                 <a
                   target="_blank"
-                  href="https://medium.com/@spartanlabs/the-construction-of-the-soul-part-3-soulbound-token-with-zk-snark-implementation-900d808b9e79"
+                  href="/run"
                 >
                   <span className="text-black transition hover:text-gray-500/75 mt-5 hover:cursor-pointer">
                     ARTICLE
