@@ -5,6 +5,7 @@ import styles from '@/styles/Home.module.css'
 import bananaGif from '@/public/banana-dance.gif'
 
 import { useRouter } from 'next/router'
+import Header from '@/components/Header'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,12 +17,7 @@ export default function Home() {
 
   return (
     <>
-      {/* <Head>
-        <title>Zero Knowledge Machine Learning</title>
-        <meta name="description" content="Zero Knowledge Machine Learning" />
-        <link rel="icon" href="/favicon.ico" />
-        {inter}
-      </Head> */}
+      <Header />
       <main className={styles.main}>
         {/* Have a logo at top right hand */}
         <div className="absolute inset-x-0 top-0">
@@ -48,7 +44,12 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <button onClick={navigateToUpload}>Upload</button>
+        <button
+          className="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded"
+          onClick={navigateToUpload}
+        >
+          Upload
+        </button>
       </main>
     </>
   )
