@@ -1,4 +1,15 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Gelkin Front End
+
+Gelkin is a ZKML as a service. 
+
+- Gelkin is also being deployed at https://www.gelk.in/
+- More information can be found here: https://gist.github.com/JSeam2/c4ddd4c30994901f87082648ec5cc532
+- Other links including our backend repository can be found : https://linktr.ee/gelkin
+
+
+
+
+
 
 ## Getting Started
 
